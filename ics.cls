@@ -1,6 +1,19 @@
+%% Copyright (C) 2009- by Ruini Xue <xueruini@gmail.com>
+%% 
+%% This file may be distributed and/or modified under the
+%% conditions of the LaTeX Project Public License, either version 1.3a
+%% of this license or (at your option) any later version.
+%% The latest version of this license is in:
+%% 
+%% http://www.latex-project.org/lppl.txt
+%% 
+%% and version 1.3a or later is part of all distributions of LaTeX
+%% version 2004/10/01 or later.
+
 \NeedsTeXFormat{LaTeX2e}[1999/12/01]
 \ProvidesClass{ics}
-[2009/07/09 1.0 Symposium on Innovations in Computer Science]
+  [2009/07/10 1.0 
+   Symposium on Innovations in Computer Science]
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{article}}
 %\ExecuteOptions{}
 \ProcessOptions
@@ -9,17 +22,17 @@
 \RequirePackage{ifthen,calc}
 
 % setup paper size
-\RequirePackage[a4paper,textwidth=185mm,textheight=260mm,centering]{geometry}
+\RequirePackage[a4paper,textwidth=145mm,textheight=210mm,centering]{geometry}
 
+\RequirePackage{indentfirst}
+\RequirePackage[neverdecrease]{paralist}
 \RequirePackage{amsmath,amssymb}
 \RequirePackage{graphicx}
 \RequirePackage[config]{subfig}
-\RequirePackage{indentfirst}
 \RequirePackage{times}
 \RequirePackage[numbers,super,square,sort&compress]{natbib}
 \RequirePackage{url}
 \urlstyle{same}
-\RequirePackage[neverdecrease]{paralist}
 
 % compact the itemize spaces
 \let\itemize\compactitem
@@ -67,7 +80,7 @@
 \captionsetup[figure]{position=bottom}
 
 % setup title/auth info
-\def\and{\hskip1em}
+\def\and{\hskip.5em}
 \newcommand{\address}[1]{\long\gdef\@address{#1}}
 \newcommand{\email}[1]{\long\gdef\@email{#1}}
 
@@ -88,14 +101,12 @@
 \def\@maketitle{%
   \newpage
   \null
-  \vskip 1em%
   \begin{center}%
   \let \footnote \thanks
     {\sanhao[1.5]\bfseries\sffamily \@title \par}%
     {\xiaosi[1.5] \@author \par}
-    {\xiaowu[1.5] \@address \par}
-    {\xiaowu[1.5] Email: \@email \par}
-  \end{center}%
+    {\xiaowu[1.5] \@address \par \@email \par}
+ \end{center}%
   \par
   \vskip 1em
   \xiaowu[1.2]%
@@ -142,7 +153,7 @@
       \list{\@biblabel{\@arabic\c@enumiv}}%
            {\renewcommand{\makelabel}[1]{##1\hfill}
             \settowidth\labelwidth{\@biblabel{#1}}%
-            \addtolength{\itemsep}{-1em}
+            \addtolength{\itemsep}{-.8em}
             \leftmargin\labelwidth
             \advance\leftmargin\labelsep
             \@openbib@code
