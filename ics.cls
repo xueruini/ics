@@ -30,7 +30,7 @@
 \RequirePackage{graphicx}
 \RequirePackage[config]{subfig}
 \RequirePackage{times}
-\RequirePackage[numbers,super,square,sort&compress]{natbib}
+\RequirePackage[numbers,square,sort&compress]{natbib}
 \RequirePackage{url}
 \urlstyle{same}
 
@@ -43,31 +43,31 @@
 \let\enddescription\endcompactdesc
 
 % map font size
-\newlength\thu@linespace
-\newcommand{\thu@choosefont}[2]{%
-   \setlength{\thu@linespace}{#2*\real{#1}}%
-   \fontsize{#2}{\thu@linespace}\selectfont}
-\def\thu@define@fontsize#1#2{%
+\newlength\ics@linespace
+\newcommand{\ics@choosefont}[2]{%
+   \setlength{\ics@linespace}{#2*\real{#1}}%
+   \fontsize{#2}{\ics@linespace}\selectfont}
+\def\ics@define@fontsize#1#2{%
   \expandafter\newcommand\csname #1\endcsname[1][\baselinestretch]{%
-    \thu@choosefont{##1}{#2}}}
-\thu@define@fontsize{chuhao}{42bp}
-\thu@define@fontsize{xiaochu}{36bp}
-\thu@define@fontsize{yihao}{26bp}
-\thu@define@fontsize{xiaoyi}{24bp}
-\thu@define@fontsize{erhao}{22bp}
-\thu@define@fontsize{xiaoer}{18bp}
-\thu@define@fontsize{sanhao}{16bp}
-\thu@define@fontsize{xiaosan}{15bp}
-\thu@define@fontsize{sihao}{14bp}
-\thu@define@fontsize{banxiaosi}{13bp}
-\thu@define@fontsize{xiaosi}{12bp}
-\thu@define@fontsize{dawu}{11bp}
-\thu@define@fontsize{wuhao}{10.5bp}
-\thu@define@fontsize{xiaowu}{9bp}
-\thu@define@fontsize{liuhao}{7.5bp}
-\thu@define@fontsize{xiaoliu}{6.5bp}
-\thu@define@fontsize{qihao}{5.5bp}
-\thu@define@fontsize{bahao}{5bp}
+    \ics@choosefont{##1}{#2}}}
+\ics@define@fontsize{chuhao}{42bp}
+\ics@define@fontsize{xiaochu}{36bp}
+\ics@define@fontsize{yihao}{26bp}
+\ics@define@fontsize{xiaoyi}{24bp}
+\ics@define@fontsize{erhao}{22bp}
+\ics@define@fontsize{xiaoer}{18bp}
+\ics@define@fontsize{sanhao}{16bp}
+\ics@define@fontsize{xiaosan}{15bp}
+\ics@define@fontsize{sihao}{14bp}
+\ics@define@fontsize{banxiaosi}{13bp}
+\ics@define@fontsize{xiaosi}{12bp}
+\ics@define@fontsize{dawu}{11bp}
+\ics@define@fontsize{wuhao}{10.5bp}
+\ics@define@fontsize{xiaowu}{9bp}
+\ics@define@fontsize{liuhao}{7.5bp}
+\ics@define@fontsize{xiaoliu}{6.5bp}
+\ics@define@fontsize{qihao}{5.5bp}
+\ics@define@fontsize{bahao}{5bp}
 
 % force the paper size
 \AtBeginDvi{\special{papersize=\the\paperwidth,\the\paperheight}}
@@ -102,15 +102,18 @@
   \newpage
   \null
   \begin{center}%
-  \let \footnote \thanks
+    \let \footnote \thanks
     {\sanhao[1.5]\bfseries\sffamily \@title \par}%
-    {\xiaosi[1.5] \@author \par}
-    {\xiaowu[1.5] \@address \par \@email \par}
- \end{center}%
-  \par
-  \vskip 1em
-  \xiaowu[1.2]%
+    \vskip1em
+    {\wuhao[1.3]
+      {\sffamily \@author \par}
+      {\let\and\par\@address\par}
+      {\@email\par}}
+  \end{center}%
+  \par\vskip .5em
+  %\xiaowu[1.2]%
   {\noindent\bfseries \abstractname: }\@abstract\par
+  \vskip.6\baselineskip
   {\noindent\bfseries Keywords: } \@keywords\par
   \vskip 2em}
 
@@ -118,53 +121,27 @@
 \setcounter{secnumdepth}{5}
 \renewcommand\section{\@startsection {section}{1}{\z@}%
                                    {-3.5ex \@plus -1ex \@minus -.2ex}%
-                                   {1.5ex \@plus.2ex}%
-                                   {\normalfont\sihao\bfseries}}
+                                   {1ex \@plus.2ex}%
+                                   {\normalfont\xiaosi\bfseries}}
 \renewcommand\subsection{\@startsection{subsection}{2}{\z@}%
                                      {-2.25ex\@plus -1ex \@minus -.2ex}%
-                                     {1ex \@plus .2ex}%
+                                     {.5ex \@plus .2ex}%
                                      {\normalfont\wuhao\bfseries}}
 \renewcommand\subsubsection{\@startsection{subsubsection}{3}{\z@}%
                                      {-2ex\@plus -1ex \@minus -.2ex}%
-                                     {1ex \@plus .2ex}%
+                                     {.3ex \@plus .2ex}%
                                      {\normalfont\wuhao\bfseries}}
 \renewcommand\paragraph{\@startsection{paragraph}{4}{\z@}%
                                     {-1ex \@plus -1ex \@minus -.2ex}%
-                                    {1ex}%
+                                    {.1ex}%
                                     {\normalfont\normalsize}}
 \renewcommand\subparagraph{\@startsection{subparagraph}{5}{\z@}%
                                        {-1ex \@plus -1ex \@minus -.2ex}%
-                                       {.5ex}%
+                                       {.1ex}%
                                       {\normalfont\normalsize}}
 \renewcommand\theparagraph    {\@arabic\c@paragraph)}
 \renewcommand\thesubparagraph {(\@alph\c@subparagraph)}
 
-\renewcommand\NAT@citesuper[3]{\ifNAT@swa%
-  \unskip\kern\p@\textsuperscript{\NAT@@open #1\NAT@@close}%
-  \if*#3*\else\ (#3)\fi\else #1\fi\endgroup}
-\DeclareRobustCommand\onlinecite{\@onlinecite}
-\def\@onlinecite#1{\begingroup\let\@cite\NAT@citenum\citep{#1}\endgroup}
-
-\def\@biblabel#1{{\bfseries #1.}}
-\renewenvironment{thebibliography}[1]
-     {\section*{\refname}%
-      \@mkboth{\MakeUppercase\refname}{\MakeUppercase\refname}%
-      \xiaowu[1.3]
-      \list{\@biblabel{\@arabic\c@enumiv}}%
-           {\renewcommand{\makelabel}[1]{##1\hfill}
-            \settowidth\labelwidth{\@biblabel{#1}}%
-            \addtolength{\itemsep}{-.8em}
-            \leftmargin\labelwidth
-            \advance\leftmargin\labelsep
-            \@openbib@code
-            \usecounter{enumiv}%
-            \let\p@enumiv\@empty
-            \renewcommand\theenumiv{\@arabic\c@enumiv}}%
-      \sloppy
-      \clubpenalty4000
-      \@clubpenalty \clubpenalty
-      \widowpenalty4000%
-      \sfcode`\.\@m}
-     {\def\@noitemerr
-       {\@latex@warning{Empty `thebibliography' environment}}%
-      \endlist}
+% setup bib
+\setlength{\bibsep}{0em}
+\renewcommand{\bibfont}{\small}

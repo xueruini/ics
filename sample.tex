@@ -5,9 +5,22 @@
 
 \begin{document}
 \title{A Sample of Symposium on Innovations in Computer Science}
-\author{Ruini Xue$^{1}$ \and Wenguang Chen$^{2}$}
-\address{1. Tsinghua University Beijing 100084, 2. Insititute of High Performance Computing Beijing 100084}
-\email{xueruini@gmail.com, cwg@tsinghua.edu.cn}
+\author{%
+  Ruini Xue$^{1}$ 
+  \and 
+  Wenguang Chen$^{1}$ 
+  \and 
+  Hong Jiao$^{2}$}
+\address{%
+  $^{1}$Tsinghua University,Beijing 100084, China
+  \and
+  $^{2}$Tsinghua Press, Beijing 100084, China}
+\email{%
+  xueruini@gmail.com
+  \and
+  cwg@tsinghua.edu.cn
+  \and
+  jiaoh@tup.tsinghua.edu.cn}
 
 \begin{abstract} 
   This template follows \LaTeXe{} conventions, and your \TeX{} and \LaTeX{}
@@ -33,9 +46,9 @@ advancement of computer science.
 \subsection{References Example}
 \label{sec:ref-example}
 Xue and Chen explored the feasibility of user-level file system in HPC
-environment~\cite{xue08}. Donald~\onlinecite{tex} wrote the
-masterpiece. Extensive research on system reliability was conducted in the past
-several decades~\cite{xue09,Chafik94,MellingerR96,NPB2}.
+environment~\cite{xue08}. Donald~\cite{tex} wrote the masterpiece. Extensive
+research on system reliability was conducted in the past several
+decades~\cite{xue09,Chafik94,MellingerR96,NPB2}.
 
 \subsection{Details}
 \label{sec:details}
@@ -58,19 +71,21 @@ input complicated equations.
 
 \subsection{Table Example}
 \label{sec:more-more-details-1}
-Please check Table~\ref{tab:example}.
+Please check Table~\ref{tab:example}. Note that this is just a table example,
+the template does nothing to prevent you from designing tables much more
+complicated than this example, or even simpler than this one.
 
 \begin{table}[h]
   \centering
   \caption{Table Example}
   \label{tab:example}
-  \begin{tabular}{l|l|l}
+  \begin{tabular}{l|l}
     \hline
-    first & second & third \\
+    Name & Age \\
     \hline
-    first & second & third \\
+    John & 23 \\
     \hline
-    first & second & third \\
+    Alice & 22 \\
     \hline
   \end{tabular}
 \end{table}
@@ -79,9 +94,8 @@ Please check Table~\ref{tab:example}.
 \label{sec:more-details}
 The Institute for Computer Science (ITCS) is a new institute headed by Professor
 Andrew Chi-Chih Yao at Tsinghua University\footnote{This is a footnote
-  example. Do not use footnote if possible.}. Its mission is to nurture and
-develop the talents of students and researchers and to create knowledge for the
-advancement of computer science.
+  example.}. Its mission is to nurture and develop the talents of students and
+researchers and to create knowledge for the advancement of computer science.
 
 \paragraph{More More Details}
 \label{sec:more-more-details}
@@ -129,7 +143,9 @@ members.
 Please check Figure~\ref{fig:example}. The figure may not appear the place where
 your code locates, this is because figures and tables are float objects in
 \LaTeX, which means that they are can be moved around to generate better
-typesetting results.
+typesetting results. Note that if you want to make the figure to span the
+columns, use \texttt{figure*} instead of \texttt{figure}. This also works for
+tables and user defined floats via package \textsf{float}.
 
 \begin{figure}
   \centering
@@ -145,9 +161,15 @@ partially supported by Chinese National 973 Basic Research Program under Grant
 2007CB310900 and by Tsinghua National Laboratory for Information Science and
 Technology. 
 
+
+\appendix
+\section*{Appendix A}
+put appendix contents here.
+
+
 % References
 % 
-% \bibliographystyle{unsrt}
+% \bibliographystyle{unsrt} % or unsrtnat
 % \bibliography{bibfile}
 
 \begin{thebibliography}{99}
