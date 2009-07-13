@@ -134,11 +134,11 @@
 \renewcommand\paragraph{\@startsection{paragraph}{4}{\z@}%
                                     {-1ex \@plus -1ex \@minus -.2ex}%
                                     {.1ex}%
-                                    {\normalfont\normalsize}}
+                                    {\normalfont\normalsize\bfseries}}
 \renewcommand\subparagraph{\@startsection{subparagraph}{5}{\z@}%
                                        {-1ex \@plus -1ex \@minus -.2ex}%
                                        {.1ex}%
-                                      {\normalfont\normalsize}}
+                                      {\normalfont\normalsize\bfseries}}
 \renewcommand\theparagraph    {\@arabic\c@paragraph)}
 \renewcommand\thesubparagraph {(\@alph\c@subparagraph)}
 
