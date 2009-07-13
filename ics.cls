@@ -12,7 +12,7 @@
 
 \NeedsTeXFormat{LaTeX2e}[1999/12/01]
 \ProvidesClass{ics}
-  [2009/07/10 1.0 
+  [2009/07/14 1.0 
    Symposium on Innovations in Computer Science]
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{article}}
 %\ExecuteOptions{}
