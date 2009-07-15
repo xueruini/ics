@@ -114,7 +114,7 @@
   %\xiaowu[1.2]%
   {\noindent\bfseries \abstractname: }\@abstract\par
   \vskip.6\baselineskip
-  {\noindent\bfseries Keywords: } \@keywords\par
+  {\noindent\bfseries Keywords:}\enspace\ignorespaces\@keywords\par
   \vskip 2em}
 
 % setup sections

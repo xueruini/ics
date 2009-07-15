@@ -1,0 +1,324 @@
+\documentclass{article}
+
+\def\cmd#1{$\backslash$\texttt{#1}}
+
+\begin{document}
+\title{Author's Guide to the Symposium on Innovations in Computer Science
+  Template \texttt{(ics.cls)}}
+
+\author{Ruini Xue\\
+  xueruini@gmail.com}
+
+\maketitle
+
+\begin{abstract}
+  This guide explains how to use the ICS \LaTeX{} template. Since the template
+  follows \LaTeX{} conventions, it's quite easy to use. Besides, we borrow some
+  texts from \texttt{sigplan-guide.pdf}.
+\end{abstract}
+
+\section{Introduction}
+\label{sec:introduction}
+The ICS style is a \LaTeX\ class file that you use to prepare papers for
+\emph{Symposium on Innovations in Computer Science} conference proceedings. 
+
+The ICS class file is a variant of the standard \LaTeX\ article style.  It is
+based on \texttt{article.cls} and both replaces and adds to its features. This
+author’s guide assumes you are familiar with \LaTeX\ and describes the features
+of the ICS class file that are new or different.
+
+\subsection{What You Need}
+\label{sec:what-you-need}
+
+You only need three files to use the ICS class file: 
+
+\begin{itemize}
+\item The \LaTeX{} class file, \texttt{ics.cls}
+\item This document, \texttt{\expandafter{\jobname}.pdf}
+\item A sample file, \texttt{sample.tex}, to help you get started preparing your
+  paper.
+\end{itemize}
+
+\section{Document Prolog}
+\label{sec:document-prolog}
+This chapter describes the commands used in the prolog of your paper. The prolog
+is the portion of the \LaTeX{} source file that precedes the text of the paper.
+
+\subsection{Example}
+\label{sec:example}
+
+\begin{verbatim}
+\documentclass{ics} 
+
+% \usepackage{mypackage}
+
+\begin{document} 
+... text of the paper ... 
+\end{document}
+\end{verbatim}
+
+\subsection{The Document Class}
+\label{sec:document-class}
+The \cmd{documentclass} command names the ICS class file and lists any desired
+options. By now, we do not provide any specific option.
+
+\subsection{Packages}
+\label{sec:packages}
+If you need to use any \LaTeX\ packages, these are specified immediately following
+the \cmd{documentclass} command. Table~\ref{tab:packages} lists the packages
+that are used by the ICS class.
+
+\begin{table}
+  \centering
+  \caption{Packages used by the ICS class file.}
+  \label{tab:packages}
+  \begin{tabular}{ll}
+    \hline
+  Name & Description \\
+   \hline
+  amsmath,amssymb & AMS Math package \\
+  graphicx & insert graphics \\
+  paralist & refined lists \\
+  subfig, caption & (sub)float captions \\
+  times & text fonts \\
+  natbib & bibliography and reference format \\
+  \hline
+  \end{tabular}
+\end{table}
+
+\subsection{Definitions}
+\label{sec:definitions}
+If you need any macro definitions for your paper, these should appear immediately
+before the \verb|\begin{document}| command that indicates the start of the text
+  of the paper. It is best to use \cmd{newcommand} to defined macros, rather
+  than \cmd{def}, to ensure that existing macros are not accidently redefined.
+
+\subsection{Texts}
+\label{sec:texts}
+
+The text of your paper is enclosed between \verb|\begin{document}| and
+  \verb|\end{document}| environment that follows the
+prolog. Section~\ref{sec:title-assoc-inform} describes the commands that produce
+the title, and author lists on the first page of the paper. These commands
+appear first in the text.
+
+\section{Title and Associated Information}
+\label{sec:title-assoc-inform}
+This chapter describes the commands used to produce the title page of your 
+paper.
+
+\section{Example}
+\label{sec:example-title}
+The following example presents many of the commands necessary to produce 
+the title page of your paper. Subsequent sections will discuss the commands in 
+detail.
+
+\begin{verbatim}
+\begin{document}
+\title{A Sample of Symposium on Innovations in Computer Science}
+
+\author{%
+  Ruini Xue$^{1}$ 
+  \and 
+  Wenguang Chen$^{1}$ 
+  \and 
+  Hong Jiao$^{2}$}
+
+\address{%
+  $^{1}$Tsinghua University,Beijing 100084, China
+  \and
+  $^{2}$Tsinghua Press, Beijing 100084, China}
+
+\email{%
+  xueruini@gmail.com
+  \and
+  cwg@tsinghua.edu.cn
+  \and
+  jiaoh@tup.tsinghua.edu.cn}
+
+\begin{abstract} 
+  ...abstract texts...
+\end{abstract}
+
+\keywords{word1; word2; word3; and word4}
+
+%Important: do call \maketitle after abstract and keywords!!!
+\maketitle
+\end{verbatim}
+
+% \subsection{Conference Information}
+% \label{sec:conf-inform}
+
+\subsection{Title}
+\label{sec:title}
+The following commands are used to provide the title for 
+your paper.
+
+\begin{itemize}
+\item \verb|\title{title texts}|
+\end{itemize}
+
+This command specifies the title of your paper. You can use the linebreak
+(\verb|\\|) command to break lines in the title. 
+
+\subsection{Authors}
+\label{sec:authors}
+
+The following command is used to specify authors and related information of your paper.
+
+\begin{itemize}
+\item \verb|\author{author1 \and author2...}|
+\end{itemize}
+
+This command specifies the names of authors of your paper. Use \cmd{and} to
+separate different authors\footnote{\cmd{and} is also used to separate
+affiliations and emails.}. If the authors' affiliations are different, group
+authors of the same institute with superscript as following:
+
+\begin{verbatim}
+\author{%
+  Ruini Xue$^{1}$ 
+  \and 
+  Wenguang Chen$^{1}$ 
+  \and 
+  Hong Jiao$^{2}$}
+\end{verbatim}
+
+\begin{itemize}
+\item \verb|\address{address1 \and address2...}|
+\end{itemize}
+
+This command specifies the affiliations of the authors. If they are grouped in
+the \cmd{author} command, please make sure the superscripts are consistent.
+
+\begin{itemize}
+\item \verb|\email{email1 \and email2...}|
+\end{itemize}
+
+This command specifies the emails of the authors. Different from the previous
+two commands, you'd better list each author's email, so do not use superscripts
+to group emails here.
+
+\begin{itemize}
+\item \verb|\begin{abstract}...\end{abstract}|
+\end{itemize}
+
+This environment includes the abstract for your paper.
+
+\begin{itemize}
+\item \verb|\keywords{word1; word2; word3...}|
+\end{itemize}
+
+This command specifies the key words of your paper. Separate individual key
+words with semicolon. This command 
+
+\begin{itemize}
+\item \cmd{maketitle}
+\end{itemize}
+
+This command must appear following the keywords in order to typeset the top of 
+the title page.
+
+\section{Hierarchy}
+\label{sec:hierarchy}
+Table~\ref{tab:headings} describes the commands that are used to produce hierarchical 
+headings in your paper. They strictly follows the \LaTeX\ conventions, so their
+corresponding star forms produce non-numbered headings.
+
+\begin{table}
+  \centering
+  \caption{Headings Hierarchy.}
+  \label{tab:headings}
+  \begin{tabular}{ll}
+    \hline
+  Command & Level \\
+   \hline
+  \verb|\section{title}| & 1 \\
+  \verb|\section{title}| & 2 \\
+  \verb|\section{title}| & 3 \\
+  \verb|\paragraph{title}| & 4 \\
+  \verb|\subparagraph{title}| & 5 \\
+  \hline  
+  \end{tabular}
+\end{table}
+
+\section{Figures and Tables}
+\label{sec:figures-tables}
+
+A numbered floating figure is coded in this fashion: 
+
+\begin{verbatim}
+\begin{figure} 
+\centering
+... content ... 
+\caption{Foundational framework of the snork mechanism.} 
+\label{fig-ffsm} 
+\end{figure} 
+\end{verbatim}
+
+This produces a figure with its content at the top and its caption at the bottom.
+
+A numbered floating table is coded as follows: 
+
+\begin{verbatim}
+\begin{table} 
+\centering
+\caption{Critical parameters of the snork mechanism.} 
+\label{tab-cpsm}  
+\begin{tabular}{...} 
+... tabular content ... 
+\end{tabular} 
+\end{table}
+\end{verbatim}
+ 
+This produces a table with its tabular material at the bottom and its caption at 
+the top.
+
+\section{Bibliography}
+\label{sec:bibliography}
+You can write the bibliography one item by one item like this:
+
+\begin{verbatim}
+\begin{thebibliography}{99}
+\bibitem{xue08} Ruini X, Wenguang C, Weimin Z. CprFS: A User-level File System
+  to Support Consistent File States for Checkpoint and Restart. 22nd ACM
+  International Conference on Supercomputing (ICS'08), 114-223, June 7-12, 2008.
+
+\bibitem{tex} Knuth D~E. The {\TeX} Book. 15th ed. Reading, MA: Addison-Wesley
+  Publishing Company, 1989
+
+\bibitem{xue09} Ruini X, Xuezheng L, Ming W, Zhenyu G, Wenguang C, Weimin Z,
+  Zheng Z, Geoffery M~V. MPIWiz: Subgroup Reproducible Replay of MPI
+  Applications. 14th ACM SIGPLAN Symposium on Principles and Practice of
+  Parallel Programming (PPoPP'09), 251-260, February 14-18, 2009.
+
+\bibitem{Chafik94} {Chafik El Idrissi} M, Roney A, Frigon C, et~al. Measurements
+  of total kinetic-energy released to the {$N=2$} dissociation limit of {H}$_2$
+  --- evidence of the dissociation of very high vibrational {R}ydberg states of
+  {H}$_2$ by doubly-excited states. Chemical Physics Letters, 1994,
+  224(10):260--266
+
+\bibitem{MellingerR96} Mellinger A, Vidal C~R, Jungen C.  Laser reduced
+  fluorescence study of the carbon-monoxide nd triplet {R}ydberg
+  series-experimental results and multichannel quantum-defect analysis.
+  J. Chem. Phys., 1996, 104(5):8913--8921
+
+\bibitem{NPB2} Woo A, Bailey D, Yarrow M, et~al. The {NAS} Parallel Benchmarks
+  2.0. Technical report, The Pennsylvania State University CiteSeer Archives,
+  December~05, 1995. \url{http://www.nasa.org/}
+\end{thebibliography}
+\end{verbatim}
+
+Our recommendation is to manage and generate the bibliography with Bib\TeX{} as
+following:
+
+\begin{verbatim}
+\bibliographystyle{unsrtnat}
+\bibliography{bibfile}
+\end{verbatim}
+
+The printer for ICS proceedings wants the bibliography to be included in 
+your main \LaTeX\ file. If you generate the bibliography with Bib\TeX, you should 
+then merge the resulting \texttt{.bbl} file into the main file.
+
+\end{document}
