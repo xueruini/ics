@@ -41,7 +41,7 @@ You only need three files to use the ICS class file:
 
 \section{Document Prolog}
 \label{sec:document-prolog}
-This chapter describes the commands used in the prolog of your paper. The prolog
+This section describes the commands used in the prolog of your paper. The prolog
 is the portion of the \LaTeX{} source file that precedes the text of the paper.
 
 \subsection{Example}
@@ -102,12 +102,25 @@ prolog. Section~\ref{sec:title-assoc-inform} describes the commands that produce
 the title, and author lists on the first page of the paper. These commands
 appear first in the text.
 
+\section{Structure of the Document}
+\label{sec:structure-document}
+We require the material appearing between \verb|\begin{document}| and
+  \verb|\end{document}| to be displayed over two columns. Furthermore, the
+structure of the article must be as follows: 
+
+\begin{itemize}
+\item Text of the paper
+\item Acknowledgment
+\item Appendix (optional)
+\item Bibliography
+\end{itemize}
+
 \section{Title and Associated Information}
 \label{sec:title-assoc-inform}
-This chapter describes the commands used to produce the title page of your 
+This section describes the commands used to produce the title page of your 
 paper.
 
-\section{Example}
+\subsection{Example}
 \label{sec:example-title}
 The following example presents many of the commands necessary to produce 
 the title page of your paper. Subsequent sections will discuss the commands in 
@@ -196,8 +209,8 @@ the \cmd{author} command, please make sure the superscripts are consistent.
 \end{itemize}
 
 This command specifies the emails of the authors. Different from the previous
-two commands, you'd better list each author's email, so do not use superscripts
-to group emails here.
+two commands, list each author's email. Do not use superscripts
+to group emails.
 
 \begin{itemize}
 \item \verb|\begin{abstract}...\end{abstract}|
@@ -210,7 +223,7 @@ This environment includes the abstract for your paper.
 \end{itemize}
 
 This command specifies the key words of your paper. Separate individual key
-words with semicolon. This command 
+words with semicolon.
 
 \begin{itemize}
 \item \cmd{maketitle}
@@ -272,7 +285,13 @@ A numbered floating table is coded as follows:
 \end{verbatim}
  
 This produces a table with its tabular material at the bottom and its caption at 
-the top.
+the top. We recommend not to use vertical borders in tables if possible, but this is
+not mandatory.
+
+Both figures and tables accept the \texttt{h, t, b, p} options. If the figures
+or tables are too big to fit in one column, please use their corresponding star
+forms (\texttt{figure*} and \texttt{table*}) to place figures and tables over
+two columns.
 
 \section{Bibliography}
 \label{sec:bibliography}
